@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Project PoC: Robotvoet</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css">
+  </head>
+  <body>
+    <h1>Welkom spelers</h1>
+    <h3>Gelieven jullie namen in te vullen</h3>
+    <form method="post" action="{{ url_for('start') }}">
+        <label for="speler1" class="form-label">Speler 1:</label>
+        <input type="text" id="speler1" name="speler1" class="form-text">
+        <label for="speler2" class="form-label">Speler 2:</label>
+        <input type="text" id="speler2" name="speler2" class="form-text">
+        <input type="submit" value="Start">
+    </form>
+
+  </body>
+</html>
