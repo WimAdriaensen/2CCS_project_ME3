@@ -5,17 +5,14 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css">
   </head>
   <body>
-    <h2>Welkom {{ result[0] }} en {{ result[1] }} geniet van het spel!</h2>
 
-    <h4>{{ result[0] }} mag beginnen:</h4>
+    <h4>De beurt is aan {{ result }}</h4>
      
-    <form method="post" action="{{ url_for('schot1') }}">
+    <form method="post" action="{{ url_for('schot2') }}">
         <label for="power" class="form-label">Kracht in procent (0-100): </label>
         <input type="number" class="form-text" name="power" id="power" min="0" max="100" value=50 aria-describedby="description"><br>
         <div class="description">100 procent is 11.35rpm, 0 procent is 2.9rpm</div><br>
         <input class="btn btn-primary" type="submit" value="Aansturen">
     </form>
-
-
   </body>
-  </html>
+</html>
