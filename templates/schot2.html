@@ -2,20 +2,68 @@
 <html>
   <head>
     <title>Project PoC: Robotvoet</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style/style1.css') }}">
+    <link rel="stylesheet" href="style.js">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css">
   </head>
   <body>
+    <div class="border">
+   <div class="borderheaders">
     <h2>De bal is geschoten met {{ result[0] }}% kracht</h2>
 
     <h3>Raak? Vul je score in!</h3>
+    <h5>Druk op start voor bonuspunten</h5>
 
-    <form method="post" action="{{ url_for('end') }}">
-      <label for="score2" class="form-label">Wat is je score?</label>
-      <input type="number" class="form-text" name="score2" id="score2" min="0" max="20" value=0><br>
-      <label for="som2" class="form-label">los de som op voor bonuspunten! {{ result[1] }} =</label>     
-      <input type="number" class="form-text" name="som2" id="som2" value=0><br>
-      <input class="btn btn-primary" type="submit" value="Volgende">
+    </div>
+    <div class="borderinputs justify-content-center">
+    <form method="post" id="myForm" action="{{ url_for('end') }}">
+
+        <div class="input-group justify-content-center">
+      <label for="score2" class="form-label"></label>
+      <input type="number" class="form-control input--style-1" placeholder="Wat is je score?" name="score2" id="score2" min="0" max="20" required>
+      </div>
+      
+      <div class="input-group justify-content-center">
+      <label for="som2" class="form-label ms-3 text-center mt-3"><h2 style="display:none" id="som">{{ result[1] }} =</h2></label>
+      <div class="clearfix w-100"></div>
+    <input type="number" class="form-control input--style-1" placeholder="los de som op voor bonuspunten!" name="som2" id="som2" style="display:none" required>
+
+      
+      </div>
+      <br>
+
+
+      <input class="btn btn-primary" type="submit" style="display:none" id="submitknop" value="Volgende">
   </form>
+  <button id="startButton">Start</button>
+
+  <h5>timer: </h5>
+  <h5 id="timer" style="display:none"></h5>  
+<script type="text/javascript">
+  var startButton = document.getElementById("startButton");
+  startButton.addEventListener("click", function() {
+    document.getElementById("timer").style.display = "block";
+    document.getElementById("som").style.display = "block";
+    document.getElementById("submitknop").style.display = "block";
+    document.getElementById("som2").style.display = "block";
+    document.getElementById("startButton").style.display = "none";
+    // document.getElementById("som").previousElementSibling.innerHTML = "los de som op voor bonuspunten! " + "{{ result[1] }}" + " =";
+    var varTimerInMiliseconds = 32000;
+    var countDownDate = new Date().getTime() + varTimerInMiliseconds;
+    var x = setInterval(function() {
+      var now = new Date().getTime();
+      var distance = countDownDate - now;
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      document.getElementById("timer").innerHTML = minutes + "m " + seconds + "s ";
+      if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("timer").innerHTML = "EXPIRED";
+        document.getElementById("myForm").submit();
+      }
+    }, 1000);
+  });
+</script>
 
   </body>
   </html>

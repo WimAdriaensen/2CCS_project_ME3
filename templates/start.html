@@ -2,20 +2,25 @@
 <html>
   <head>
     <title>Project PoC: Robotvoet</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style/style2.css') }}">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css">
   </head>
   <body>
-    <h2>Welkom {{ session['result'][0] }} en {{ session['result'][1] }} geniet van het spel!</h2>
-
-    <h4>{{ session['result'][0] }} mag beginnen:</h4>
-     
+    <div class="border">
+        <div class="borderheaders">
+    <h1>Welkom {{ session['result'][0] }} en {{ session['result'][1] }} </h1>
+<h1>geniet van het spel!</h1>
+    <h3 class="pt-3">{{ session['result'][0] }} mag beginnen</h3>
+     </div>
+     <div class="borderinputs">
     <form method="post" action="{{ url_for('schot1') }}">
-        <label for="power" class="form-label">Kracht in procent (0-100): </label>
-        <input type="number" class="form-text" name="power" id="power" min="0" max="100" value=50 aria-describedby="description"><br>
-        <div class="description">100 procent is 11.35rpm, 0 procent is 2.9rpm</div><br>
+        <label for="power" class="form-label"><h5>Kracht in procent (0-100):</h5> </label>
+        <input type="number" class="form-control" name="power" id="power" min="0" max="100" value=50 aria-describedby="description" required><br>
+        <div class="description"><h6>100 procent is 11.35rpm,</h6><h6> 0 procent is 2.9rpm</h6></div><br>
         <input class="btn btn-primary" type="submit" value="Aansturen">
     </form>
-
+</div>
+</div>
 
   </body>
   </html>
