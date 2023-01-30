@@ -41,6 +41,13 @@ def start():
 
         session['result'] = [name1, name2]
 
+        global score_p1
+        global score_p2
+
+        if score_p1 is not None:
+            score_p1 = None
+            score_p2 = None
+
         return render_template('start.html')
 
 
@@ -243,6 +250,11 @@ def reset():
     session.pop('result', None)
     session['result'] = result
     return render_template('start.html')
+
+
+@app.route("/fullreset", methods=['POST'])
+def fullreset():
+    return render_template('index.html', data=[{'difficulty':'easy'}, {'difficulty':'medium'}, {'difficulty':'hard'}])
 
 if __name__ == "__main__":
     pins=[18, 23, 24, 25]

@@ -18,9 +18,9 @@
         <p>Player 2 Score: {{ session['result'][3] }}</p>
     </div>
     <div class="borderinputs">
-    <a href="/">
-        <button type="button" class="btn btn-primary">Opnieuw beginnen</button>
-    </a>
+    <form action="/fullreset" method="post" class="pt-4">
+        <button type="submit" class="btn btn-primary">Opnieuw beginnen</button>
+    </form>
     <form action="/reset" method="post" class="pt-4">
         <button type="submit" class="btn btn-secondary">Begin opnieuw met dezelfde namen</button>
     </form>
