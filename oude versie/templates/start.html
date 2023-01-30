@@ -5,9 +5,9 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css">
   </head>
   <body>
-    <h2>Welkom {{ session['result'][0] }} en {{ session['result'][1] }} geniet van het spel!</h2>
+    <h2>Welkom {{ result[0] }} en {{ result[1] }} geniet van het spel!</h2>
 
-    <h4>{{ session['result'][0] }} mag beginnen:</h4>
+    <h4>{{ result[0] }} mag beginnen:</h4>
      
     <form method="post" action="{{ url_for('schot1') }}">
         <label for="power" class="form-label">Kracht in procent (0-100): </label>

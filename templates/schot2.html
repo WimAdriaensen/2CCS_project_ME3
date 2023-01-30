@@ -9,9 +9,13 @@
 
     <h3>Raak? Vul je score in!</h3>
 
-    <form action="">
-        
-    </form>
+    <form method="post" action="{{ url_for('end') }}">
+      <label for="score2" class="form-label">Wat is je score?</label>
+      <input type="number" class="form-text" name="score2" id="score2" min="0" max="20" value=0><br>
+      <label for="som2" class="form-label">los de som op voor bonuspunten! {{ result[1] }} =</label>     
+      <input type="number" class="form-text" name="som2" id="som2" value=0><br>
+      <input class="btn btn-primary" type="submit" value="Volgende">
+  </form>
 
   </body>
   </html>

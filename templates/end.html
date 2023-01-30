@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=	, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="result-container">
+        <p>Player 1: {{ session['result'][0] }}</p>
+        <p>Player 2: {{ session['result'][1] }}</p>
+        <p>Player 1 Score: {{ session['result'][2] }}</p>
+        <p>Player 2 Score: {{ session['result'][3] }}</p>
+    </div>
+    <a href="/">
+        <button type="button" class="btn btn-primary">Opnieuw beginnen</button>
+    </a>
+    <form action="/reset" method="post">
+        <button type="submit" class="btn btn-secondary">Begin opnieuw met dezelfde namen</button>
+    </form>
+</body>
+</html>
