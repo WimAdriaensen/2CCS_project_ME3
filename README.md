@@ -1,4 +1,4 @@
-# 2CCS_project
+# 2CCS_project (System Engineering & Analysis)
 
 ### For you information
 "project_test.py" is het hoofdprogramma <br>
